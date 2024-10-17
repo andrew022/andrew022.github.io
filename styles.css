@@ -103,12 +103,11 @@ h2 {
 
 h2::after {
     content: '';
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    height: 3px;
-    background: purple;
-    margin: 10px auto;
+    display: inline-block; /* Change to inline-block */
+    width: 50px; /* Set a fixed width */
+    height: 5px;
+    background: #ffce3a;
+    margin: 20px auto; /* Adjust margin for centering */
 }
 
 p {
