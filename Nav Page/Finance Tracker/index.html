@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+
+        <h2>Add Expense</h2>
+        <input type="number" id="spendAmount" placeholder="Amount" />
+        <select id="billSelect">
+            <option style="display: none;" value="" selected>Select Option</option>
+            <option value="Car Payment">Car Payment</option>
+            <option value="Rent/Mortgage">Rent/Mortgage</option>
+            <option value="Rent/Home Insurance">Rent/Home Insurance</option>
+            <option value="HOA">HOA</option>
+            <option value="Gas">Gas</option>
+            <option value="Electric">Electric</option>
+            <option value="Water">Water</option>
+            <option value="Food">Food</option>
+            <option value="Gifts">Gifts</option>
+            <option value="Video Games">Video Games</option>
+            <option value="Misc">Misc</option>
+        </select>
+        <button onclick="addSpending()">Add Expense</button>
+
+        <h2>Add Income</h2>
+        <input type="number" id="incomeAmount" placeholder="Amount" />
+        <select id="incomeSelect">
+            <option style="display: none;" value="" selected>Select Type</option>
+            <option value="Work">Work</option>
+            <option value="School">School</option>
+            <option value="VA">VA</option>
+            <option value="Marines">Marines</option>
+            <option value="Misc">Misc</option>
+        </select>
+        <button onclick="addIncome()">Add Income</button>
+
+        <div class="saving_totals">
+            <h2>Summary</h2>
+            <p>Total Income: $<span id="totalIncome">0</span></p>
+            <p>Total Expenses: $<span id="totalSpending">0</span></p>
+            <p>Savings: $<span id="savings">0</span></p>
+            <h3>Dispersed Savings:</h3>
+            <p>House Savings (60%): $<span id="houseSavings">0</span></p>
+            <p>Car Savings (20%): $<span id="carSavings">0</span></p>
+            <p>Misc Savings (20%): $<span id="miscSavings">0</span></p>
+            <button onclick="resetInputs()">Reset Data</button>
+            <div id="progressContainer">
+                <div id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entries-container">
+        <h2>Entries</h2>
+        <ul id="spendingEntriesList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
