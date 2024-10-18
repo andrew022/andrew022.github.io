@@ -21,14 +21,14 @@ body {
 }
 
 /* main */
-.glitch {
+.glitchyName {
     font-size: 72px;
     font-weight: bold;
     position: relative;
     color: cyan;
 }
 
-.glitch-title {
+.glitchTitle {
     font-size: 36px;
     position: relative;
     color: magenta;
@@ -36,10 +36,10 @@ body {
 }
 
 /* glitch */
-.glitch::before,
-.glitch::after,
-.glitch-title::before,
-.glitch-title::after {
+.glitchyName::before,
+.glitchyName::after,
+.glitchTitle::before,
+.glitchTitle::after {
     content: attr(data-text);
     position: absolute;
     left: 0;
@@ -50,25 +50,25 @@ body {
     overflow: hidden;
 }
 
-.glitch::before {
+.glitchyName::before {
     left: 2px;
     text-shadow: -2px 0 magenta;
     animation: glitch 2s infinite;
 }
 
-.glitch::after {
+.glitchyName::after {
     left: -2px;
     text-shadow: -2px 0 cyan;
     animation: glitch 3s infinite;
 }
 
-.glitch-title::before {
+.glitchTitle::before {
     left: 1px;
     text-shadow: -1px 0 cyan;
     animation: glitch 1.5s infinite;
 }
 
-.glitch-title::after {
+.glitchTitle::after {
     left: -1px;
     text-shadow: -1px 0 magenta;
     animation: glitch 2.5s infinite;
@@ -102,7 +102,7 @@ body {
 }
 
 /* button */
-.glitch-button {
+.glitchyButton {
     position: relative;
     margin-top: 40px;
     display: inline-block;
@@ -140,7 +140,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Allow clicks to pass through */
+    pointer-events: none;
 }
 
 .ripple {
@@ -153,25 +153,25 @@ body {
 @keyframes ripple-animation {
     to {
         transform: scale(4);
-        opacity: 0; /* Fade out */
+        opacity: 0;
     }
 }
 
 @media (max-width: 768px) {
-    .glitch {
-        font-size: 3rem; /* Smaller size */
+    .glitchyName {
+        font-size: 3rem;
     }
 
-    .glitch-title {
-        font-size: 1.5rem; /* Smaller title */
+    .glitchTitle {
+        font-size: 1.5rem;
     }
 
-    .glitch-button {
-        padding: 10px 20px; /* Smaller padding */
-        font-size: 1rem; /* Smaller button text */
+    .glitchyButton {
+        padding: 10px 20px;
+        font-size: 1rem;
     }
 
     .container {
-        text-align: center; /* Centered text */
+        text-align: center;
     }
 }
