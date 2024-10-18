@@ -1,246 +1,177 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.7;
-    background-color: #f0f2f5;
-    color: #333;
+    background: #0D0D0D;
+    font-family: 'Orbitron', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .container {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header Styles */
-header {
-    background: linear-gradient(45deg, #6a11cb 30%, #2575fc 100%);
-    color: white;
-    padding: 20px 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header-left {
     text-align: left;
+    color: #fff;
+    z-index: 1;
 }
 
-.header-left h1 {
-    font-size: 2.5em;
-    margin-bottom: 5px;
-}
-
-.job-title {
-    font-size: 1.2em;
-    font-weight: 300;
-}
-
-/* nav menu */
-.nav-menu {
-    display: flex;
-}
-
-.nav-menu ul {
-    list-style: none;
-    display: flex;
-}
-
-.nav-menu ul li {
-    margin: 0px 15px;
-	transition: transform 0.3s ease;
-}
-
-.nav-menu ul li a {
-    color: black;
-    text-transform: uppercase;
-	padding: 10px 15px;
-	background-color: white;
-	border-radius: 5px;
-    font-size: 1em;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.nav-menu ul li:hover {
-    transform: translateY(-5px);
-}
-
-/* section styling */
-.section {
-    padding: 50px 0;
-    text-align: center;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-#about {
-    background: #f0f2f5;
-}
-
-h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: black;
+/* main */
+.glitch {
+    font-size: 72px;
+    font-weight: bold;
     position: relative;
-    display: inline-block;
+    color: cyan;
 }
 
-h2::after {
-    content: '';
-    display: block;
-    width: 150px;
-    height: 3px;
-    background: purple;
-    margin: 10px auto;
+.glitch-title {
+    font-size: 36px;
+    position: relative;
+    color: magenta;
+    margin-top: 10px;
 }
 
-p {
-    font-size: 1.1em;
-    line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto;
-    padding-bottom: 20px;
-}
-
-/* projects */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.project {
-    background: white;
-    border-radius: 50px;
+/* glitch */
+.glitch::before,
+.glitch::after,
+.glitch-title::before,
+.glitch-title::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 3px gray;
 }
 
-.project a {
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 magenta;
+    animation: glitch 2s infinite;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 cyan;
+    animation: glitch 3s infinite;
+}
+
+.glitch-title::before {
+    left: 1px;
+    text-shadow: -1px 0 cyan;
+    animation: glitch 1.5s infinite;
+}
+
+.glitch-title::after {
+    left: -1px;
+    text-shadow: -1px 0 magenta;
+    animation: glitch 2.5s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        clip: rect(24px, 9999px, 38px, 0);
+        transform: skew(0.3deg);
+    }
+    20% {
+        clip: rect(30px, 9999px, 50px, 0);
+        transform: skew(0.5deg);
+    }
+    40% {
+        clip: rect(10px, 9999px, 60px, 0);
+        transform: skew(0.1deg);
+    }
+    60% {
+        clip: rect(44px, 9999px, 80px, 0);
+        transform: skew(0.4deg);
+    }
+    80% {
+        clip: rect(50px, 9999px, 100px, 0);
+        transform: skew(0.2deg);
+    }
+    100% {
+        clip: rect(24px, 9999px, 38px, 0);
+        transform: skew(0.3deg);
+    }
+}
+
+/* button */
+.glitch-button {
+    position: relative;
+    margin-top: 40px;
+    display: inline-block;
+    padding: 15px 30px;
+    color: white;
+    background: transparent;
     text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
 }
 
-.project:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+/* pulse */
+@keyframes subtlePulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    }
+}
+body {
+    transition: transform 0.5s ease;
 }
 
-.project h3 {
-	background-color: #b637b0;
-    color: white;
-    padding: 20px;
-    font-size: 1.5em;
-    text-align: center;
+.swipe-left {
+    transform: translateX(100%);
+}
+/* ripple */
+.ripple-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
 }
 
-.project p {
-    padding: 20px;
-    font-size: 1.1em;
-    color: #555;
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 1.5s linear;
 }
 
-/* skills */
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0; /* Fade out */
+    }
 }
 
-.skills-list li {
-	list-style: none;
-    color: black;
-    margin: 7px;
-    padding: 10px 20px;
-	border-radius: 5px 5px 0 0;
-	border-bottom: solid black;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-}
-
-.skills-list li:hover {
-	color: white;
-    background-color: gray;
-}
-/* foot */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-/* tablet design */
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none; 
-        flex-direction: column;
-        position: absolute;
-        top: 60px; 
-        right: 0;
-        background: #333;
-        width: 100%;
-        z-index: 1;
+    .glitch {
+        font-size: 3rem; /* Smaller size */
     }
 
-    .nav-menu.active {
-        display: flex;
-    }
-	
-    .nav-menu ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+    .glitch-title {
+        font-size: 1.5rem; /* Smaller title */
     }
 
-    nav ul li {
-        margin: 10px 0;
+    .glitch-button {
+        padding: 10px 20px; /* Smaller padding */
+        font-size: 1rem; /* Smaller button text */
     }
 
-}
-
-/* phone design */
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 2em;
+    .container {
+        text-align: center; /* Centered text */
     }
-
-    header p {
-        font-size: 1em;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    .project h3 {
-        font-size: 1.3em;
-    }
-
-    .project p {
-        font-size: 1em;
-    }
-
-    .skills-list li {
-        font-size: 0.9em;
-        margin: 5px;
-    }
-
 }
