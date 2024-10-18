@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const rippleContainer = document.querySelector('.ripple-container');
+    const rippleContainer = document.querySelector('.rippleContainer');
 
-    function getRandomColor() {
+    function getRandomColorRipple() {
         const letters = '0123456789ABCDEF';
         let color = '#';
         for (let i = 0; i < 6; i++) {
@@ -10,52 +10,46 @@ document.addEventListener("DOMContentLoaded", function () {
         return color;
     }
 
-    function createRipple() {
+    function makeRipple() {
         const ripple = document.createElement("div");
         ripple.classList.add("ripple");
         rippleContainer.appendChild(ripple);
-
-        // Random position
         const x = Math.random() * window.innerWidth;
         const y = Math.random() * window.innerHeight;
-        const size = Math.random() * 100 + 50; // Random size
+        const size = Math.random() * 100 + 50;
 
         ripple.style.width = ripple.style.height = `${size}px`;
-        ripple.style.left = `${x - size / 2}px`; // Center the ripple
-        ripple.style.top = `${y - size / 2}px`; // Center the ripple
-
-        // Set a random color for the ripple
-        ripple.style.backgroundColor = getRandomColor();
+        ripple.style.left = `${x - size / 2}px`;
+        ripple.style.top = `${y - size / 2}px`;
+        ripple.style.backgroundColor = getRandomColorRipple();
 
         ripple.addEventListener('animationend', () => {
-            ripple.remove(); // Remove ripple after animation ends
+            ripple.remove();
         });
     }
+    setInterval(makeRipple, 3000);
 
-    // Start creating ripples at a slower interval
-    setInterval(createRipple, 3000); // Ripple appears every 3 seconds
-
-    const button = document.querySelector('.glitch-button');
+    const button = document.querySelector('.glitchyButton');
 
     function randomBrightness() {
         const brightness = Math.random() * 0.4 + 0.1;
         button.style.boxShadow = `0 0 10px rgba(0, 255, 0, ${brightness}), 0 0 20px rgba(0, 255, 0, ${brightness})`;
     }
 
-    function startGlitchEffect() {
+    function beginGlitchEffect() {
         setInterval(() => {
             button.style.animation = `subtlePulse ${Math.random() * 1 + 1}s infinite`;
             randomBrightness();
         }, Math.random() * 1000 + 500);
     }
 
-    startGlitchEffect();
+    beginGlitchEffect();
 
     button.addEventListener('click', function () {
-        button.disabled = true; // Disable button
+        button.disabled = true;
         document.body.classList.add('swipe-left');
         setTimeout(() => {
             window.location.href = './Nav Page/index.html';
-        }, 500); // Delay for transition effect
+        }, 500);
     });
 });
