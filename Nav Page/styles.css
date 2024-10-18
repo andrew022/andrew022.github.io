@@ -83,7 +83,7 @@ header {
 .section {
     padding: 50px 0;
     text-align: center;
-    background-color: #f0f2f5;
+    background-color: #dedede;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
@@ -177,6 +177,26 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
+/* contact */
+.contact-options {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.contact-options a {
+    text-decoration: none;
+}
+
+.contact-options img {
+    width: 25px;
+    transition: transform 0.3s ease;
+}
+
+.contact-options img:hover {
+    transform: scale(1.1);
+}
+
 /* tablet design */
 @media (max-width: 768px) {
     .nav-menu {

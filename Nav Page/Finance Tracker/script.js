@@ -50,7 +50,6 @@ let ignoreLimits = {
 function addSpending() {
     const amount = parseFloat(document.getElementById('spendAmount').value);
     const category = document.getElementById('billSelect').value;
-
     if (!isNaN(amount) && category) {
         
         const currentSpending = entries
@@ -83,7 +82,6 @@ function addSpending() {
     document.getElementById('spendAmount').value = '';
     document.getElementById('billSelect').value = ''; 
 }
-
 function addIncome() {
     const amount = parseFloat(document.getElementById('incomeAmount').value);
     const category = document.getElementById('incomeSelect').value;
@@ -102,7 +100,6 @@ function addIncome() {
     document.getElementById('incomeAmount').value = '';
     document.getElementById('incomeSelect').value = ''; 
 }
-
 function resetInputs() {
     totalIncome = 0;
     totalSpending = 0;
@@ -119,7 +116,6 @@ function resetInputs() {
 
     localStorage.clear();
 }
-
 function saveMoney() {
     const savings = totalIncome - totalSpending;
     document.getElementById('savings').innerText = savings.toFixed(2);
@@ -128,14 +124,12 @@ function saveMoney() {
     document.getElementById('carSavings').innerText = (savings * 0.2).toFixed(2);
     document.getElementById('miscSavings').innerText = (savings * 0.2).toFixed(2);
 }
-
 function saveData() {
     localStorage.setItem('totalIncome', totalIncome);
     localStorage.setItem('totalSpending', totalSpending);
     localStorage.setItem('entries', JSON.stringify(entries)); 
     localStorage.setItem('lastUpdated', new Date());
 }
-
 function updateEntriesList() {
     const spendingEntriesList = document.getElementById('spendingEntriesList');
     spendingEntriesList.innerHTML = '';
@@ -154,7 +148,6 @@ function updateEntriesList() {
         spendingEntriesList.appendChild(listItem);
     });
 }
-
 function spendingLimitBar() {
     const progress = Math.min((totalSpending / maxSpending) * 100, 100);
     document.getElementById('progressBar').style.width = `${progress}%`;
